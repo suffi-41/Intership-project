@@ -334,19 +334,22 @@
     let container = document.getElementsByClassName('container')[0]
     container.innerHTML = fetchObj
   }
-  fetchData()
+  const run = async () =>{
+       await fetchData(page, pagesize)
+      }
+  run()
 
-  const nextView = () => {
+  const nextView = async () => {
     page += 1;
-    fetchData(page)
+    await fetchData(page)
   }
-  const preView = () => {
+  const preView = async () => {
     if (page < 1) {
       alert('Dont press again ')
     }
     else {
       page -= 1;
-      fetchData(page)
+     await fetchData(page)
     }
   }
 
