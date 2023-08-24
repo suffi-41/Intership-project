@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monkey-news</title>
+  <style>
+    body {
+      width: vw;
+      height: vh;
+      margin: 0px;
+      padding: 0px;
+      background-color: white;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      background-color: rgb(20, 47, 47);
+      width: 100%;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0px;
+      left: 0px;
+    }
+
+    header span {
+      display: none;
+    }
+
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      height: 4rem;
+    }
+
+    .navbar li {
+      list-style: none;
+      margin-left: 1rem;
+    }
+
+    .navbar li button,
+    input,
+    button {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      border: none;
+      outline: none;
+      height: 1.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    li button:hover {
+      background-color: #c2bbbb;
+    }
+
+    input[type="search"] {
+      text-align: center;
+    }
+
+    input[type="search"]::placeholder {
+      text-align: center;
+      color: green;
+    }
+
+    input[type="search"],
+    button[type="button"] {
+      position: relative;
+      left: 24rem;
+    }
+
+    .navbar .ancer {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: smaller;
+      height: 1rem;
+      width: 6rem;
+      padding: 0.5rem;
+      background-color: white;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .navbar .ancer:hover {
+      background-color: #c2bbbb;
+    }
+
+    .navbar .ancer a {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+      background-color: white;
+      text-align: center;
+    }
+
+    .navbar .ancer a:hover {
+      background-color: #c2bbbb;
+    }
+
+    h2 {
+      text-align: center;
+
+    }
+
+    .container {
+      width: 100%;
+      margin: auto;
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      overflow-y: auto;
+    }
+
+    .card {
+      margin-top: 0.3rem;
+      margin: 10px;
+      width: 22rem;
+      height: 31rem;
+      border-radius: 10px;
+      background-color: #ebebeb;
+      box-shadow: 3px 3px 4px 2px rgb(22 21 21 / 70%);
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 50%;
+      border-radius: 1rem;
+    }
+
+    .card-author {
+      color: green;
+      margin-top: 0rem;
+      margin-left: 0.3rem;
+    }
+
+    .card-title {
+      margin-top: 0rem;
+      margin-left: 0.3rem;
+      font-size: large;
+
+    }
+
+    .card-text {
+      text-align: justify;
+      padding: 0.4rem;
+    }
+
+    .date {
+      margin: 0.5rem;
+      color: green;
+    }
+
+    .btn {
+      margin: 1rem;
+    }
+
+    .button {
+      text-decoration: none;
+      border: 1px solid black;
+      padding: 0.3rem;
+      text-align: center;
+      background-color: blue;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .bth:hover {
+      background-color: green;
+    }
+
+    .view {
+      display: inline;
+    }
+
+    #preview,
+    #nextview {
+      background-color: black;
+      color: white;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+
+    #preview {
+      float: left;
+      margin-left: 4rem;
+    }
+
+    #nextview {
+      float: right;
+      margin-right: 4rem;
+    }
+
+    #preview:hover,
+    #nextview:hover {
+      background-color: rgb(60, 59, 58);
+    }
+
+    @media screen and (min-width: 100px) and (max-width: 1224px) {
+      header {
+        background-color: black;
+        overflow: hidden;
+      }
+
+      header span {
+        display: inline;
+        color: white;
+        position: relative;
+        font-size: 26px;
+        top: 1.5rem;
+        left: 1.5rem;
+      }
+
+      .navbar {
+        position: relative;
+        top: 4rem;
+        display: block;
+        transition: height 1s ease-in-out;
+      }
+
+      .navbar li button {
+        width: 10rem;
+        margin: 10px;
+      }
+
+      input[type="search"] {
+        border: 2px solid black;
+        outline: auto;
+        width: 90%;
+        margin-left: 0.6rem;
+      }
+
+      button[type="button"] {
+        width: 10rem;
+        border: 1px solid black;
+      }
+
+      input[type="search"],
+      button[type="button"] {
+        position: relative;
+        left: 0rem;
+      }
+
+      header:hover>.navbar {
+        height: 35rem;
+      }
+
+      .navbar .ancer {
+        margin-left: 1.8rem;
+        width: 9rem;
+        margin-bottom: 1rem;
+        margin-top: 0.6rem;
+      }
+    }
+
+    @media screen and (min-width:800px) and (max-width:1280px) {
+
+      input[type="search"],
+      button[type="button"] {
+        position: relative;
+        left: 3rem;
+      }
+    }
+
+    @media screen and (min-width:900px) and (max-width:1368px) {
+
+      input[type="search"],
+      button[type="button"] {
+        position: relative;
+        left: 0rem;
+        font-size: 15px;
+        color: black;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <span>Menu</span>
+    <nav class="navbar">
+      <li><button onclick="fetchData('general')">Home</button></li>
+      <li><button onclick="newsCategory('health')">Health</button></li>
+      <li><button onclick="newsCategory('science')">Science</button></li>
+      <li><button onclick="newsCategory('entertainment')"> Entertainment</button></li>
+      <li><button onclick="newsCategory('sports')">Sports</button></li>
+      <li><button onclick="newsCategory('technology')">Technology</button></li>
+      <li class="ancer"><a href='#'>About us</a></li>
+      <li class="ancer"><a href="loginPage.html">Login / Logout</a></li>
+      <li><button type="button" id="switch">Dark mode</button></li>
+      <li><input type="search" placeholder="Search here" /></li>
+    </nav>
+  </header>
+  <h2 id="heading">Monkey-news</h2>
+  <div class="container" id="containerid">
+  </div>
+  <div class="view">
+    <button id="preview" onclick="preView()">&#8592; Preview</button>
+    <button id="nextview" onclick="nextView()">Next &#8594;</button>
+  </div>
+</body>
+<script>
+  let page = 1;
+  let pagesize = 8;
+
+  const fetchData = async (page = 1, pagesize = 8, category = 'general') => {
+    url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=e37f53305f2c4789a361be43295f61c2&page=${page}&pagesize=${pagesize}`
+    let newdata = ''
+    let fetchObj = ''
+    let data = await fetch(url)
+    let parse = await data.json()
+    for (let item in parse) {
+      newdata = parse[item]
+    }
+    newdata.map((element) => {
+      fetchObj += `
+    <div class="card" style="width: 20rem; margin:20px;">
+       <img src=${!element.urlToImage ? 'https://www.computerhope.com/cdn/big/computer.jpg' : element.urlToImage} class="card-img-top" alt="...">
+       <div class="card-body" style=${document.body.background === 'rgb(89, 85, 85)' ? 'color:white' : 'color:black'}>
+         <h5 class="card-title">${element.title.slice(0, 20)}</h5>
+         <p class="card-author style='color:green'"><b>Author : ${!element.author ? 'Mohd Sufiyan' : element.author.slice(0, 25)}</b></p>
+         <p class="card-text">${!element.description ? 'The Washington Department of Health says three people have died after becoming infected with listeria bacteria found in milkshakes at a Tacoma restaurant.' : element.description.slice(0, 100)}</p>
+         <div class='date'> publishedAt : ${!element.publishedAt ? Date.now() : element.publishedAt}</div>
+         <div class="btn"> <a href="${element.url}" class="button">Know more</a></div>
+
+       </div>
+     </div>
+    `
+    })
+    let container = document.getElementsByClassName('container')[0]
+    container.innerHTML = fetchObj
+  }
+  fetchData()
+
+  const nextView = () => {
+    page += 1;
+    fetchData(page)
+  }
+  const preView = () => {
+    if (page < 1) {
+      alert('Dont press again ')
+    }
+    else {
+      page -= 1;
+      fetchData(page)
+    }
+  }
+
+  const capitalize = (word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1, word.length)
+  }
+
+  const newsCategory = async (category) => {
+    await fetchData(page, pagesize, category)
+    document.getElementById('heading').innerHTML = " News according to " + capitalize(category)
+  }
+
+  let switchmode = document.getElementById('switch')
+  const mode = () => {
+    let body = document.body.style
+    if (body.background === 'white') {
+      body.background = 'rgb(89, 85, 85)'
+      body.color = 'white'
+      switchmode.innerHTML = " Light mode"
+    }
+    else {
+      body.background = 'white'
+      body.color = 'black'
+      switchmode.innerHTML = " Dark mode"
+    }
+  }
+  switchmode.onclick = mode
+
+
+</script>
+
+</html>
