@@ -306,9 +306,9 @@
   let page = 1;
   let pagesize = 8;
   const fetchData = async (page = 1, pagesize = 8, category = 'general') => {
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c70f33b7394645788a04c7e5d43b9dfe&page=${page}&pagesize=${pagesize}`
     let fetchObj = []
     let newdata = []
+    const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c70f33b7394645788a04c7e5d43b9dfe&page=${page}&pagesize=${pagesize}`
     let data = await fetch(url)
     let parse = await data.json()
     for (let item in parse) {
