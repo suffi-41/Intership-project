@@ -334,10 +334,7 @@
     let container = document.getElementsByClassName('container')[0]
     container.innerHTML = fetchObj
   }
-  const run = async () =>{
-       await fetchData(page, pagesize)
-      }
-  run()
+   fetchData()
 
   const nextView = async () => {
     page += 1;
