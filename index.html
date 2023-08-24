@@ -314,7 +314,9 @@
     for (let item in parse) {
       newdata = parse[item]
     }
+    console.log(newdata)
     newdata.map((element) => {
+      console.log(element)
       fetchObj += `
     <div class="card" style="width: 20rem; margin:20px;">
        <img src=${!element.urlToImage ? 'https://www.computerhope.com/cdn/big/computer.jpg' : element.urlToImage} class="card-img-top" alt="...">
